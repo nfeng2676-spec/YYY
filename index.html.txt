@@ -1,0 +1,265 @@
+!DOCTYPE html
+html lang=zh-CN
+head
+  meta charset=UTF-8 
+  meta name=viewport content=width=device-width, initial-scale=1.0 
+  title🎄 圣诞快乐 🎄title
+  style
+     { margin 0; padding 0; box-sizing border-box; }
+    body {
+      height 100vh;
+      background radial-gradient(circle at top, #1b3b6f, #050b18);
+      overflow hidden;
+      font-family 'Segoe UI', 'PingFang SC', sans-serif;
+      color #fff;
+    }
+
+    h1 {
+      position absolute;
+      top 8%;
+      width 100%;
+      text-align center;
+      font-size 3.4rem;
+      letter-spacing 4px;
+      animation glow 1.5s ease-in-out infinite alternate;
+    }
+
+    h2 {
+      position absolute;
+      top 18%;
+      width 100%;
+      text-align center;
+      font-size 1.9rem;
+      opacity 0.95;
+    }
+
+    @keyframes glow {
+      from { text-shadow 0 0 20px #fff, 0 0 40px #ffd966; }
+      to { text-shadow 0 0 40px #fff, 0 0 80px #66ffcc; }
+    }
+
+     圣诞树容器 
+    .tree {
+      position absolute;
+      bottom 140px;
+      left 50%;
+      transform translateX(-50%);
+      width 320px;
+      height 420px;
+    }
+
+     树层（更真实的堆叠效果） 
+    .layer {
+      position absolute;
+      left 50%;
+      transform translateX(-50%);
+      width 0;
+      height 0;
+      border-left 160px solid transparent;
+      border-right 160px solid transparent;
+      border-bottom 140px solid #1fbf6a;
+      filter drop-shadow(0 0 20px #2dff9f);
+    }
+
+    .layernth-child(1) {
+      top 0;
+      transform translateX(-50%) scale(0.6);
+    }
+
+    .layernth-child(2) {
+      top 70px;
+      transform translateX(-50%) scale(0.8);
+    }
+
+    .layernth-child(3) {
+      top 150px;
+      transform translateX(-50%) scale(1);
+    }
+
+    .layernth-child(4) {
+      top 250px;
+      transform translateX(-50%) scale(1.15);
+    }
+
+     星星 
+    .star {
+      position absolute;
+      top -40px;
+      left 50%;
+      transform translateX(-50%);
+      font-size 3.2rem;
+      animation star 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes star {
+      from { text-shadow 0 0 20px gold; }
+      to { text-shadow 0 0 60px gold; }
+    }
+
+     灯带 
+    .garland {
+      position absolute;
+      width 100%;
+      height 100%;
+      pointer-events none;
+    }
+
+    .bulb {
+      position absolute;
+      width 12px;
+      height 12px;
+      border-radius 50%;
+      animation blink 1.3s infinite alternate;
+      box-shadow 0 0 20px currentColor;
+    }
+
+    @keyframes blink {
+      from { opacity 0.4; }
+      to { opacity 1; }
+    }
+
+     装饰球 
+    .ornament {
+      position absolute;
+      width 16px;
+      height 16px;
+      border-radius 50%;
+      box-shadow 0 0 15px rgba(255,255,255,0.6);
+    }
+
+     树干 
+    .trunk {
+      position absolute;
+      bottom 90px;
+      left 50%;
+      transform translateX(-50%);
+      width 60px;
+      height 80px;
+      background #6b4025;
+      border-radius 6px;
+    }
+
+     礼物 
+    .gift {
+      position absolute;
+      bottom 30px;
+      width 70px;
+      height 55px;
+      border-radius 8px;
+      animation giftFloat 2s ease-in-out infinite alternate;
+    }
+
+    .giftbefore {
+      content '';
+      position absolute;
+      left 50%;
+      width 12px;
+      height 100%;
+      background rgba(255,255,255,0.7);
+      transform translateX(-50%);
+    }
+
+    .giftafter {
+      content '🎀';
+      position absolute;
+      top -22px;
+      left 50%;
+      transform translateX(-50%);
+    }
+
+    @keyframes giftFloat {
+      from { transform translateY(0); }
+      to { transform translateY(-12px); }
+    }
+
+     雪花 
+    .snowflake {
+      position absolute;
+      top -10px;
+      color white;
+      animation fall linear infinite;
+      user-select none;
+    }
+
+    @keyframes fall {
+      to { transform translateY(110vh); }
+    }
+
+    footer {
+      position absolute;
+      bottom 10px;
+      width 100%;
+      text-align center;
+      opacity 0.7;
+      font-size 0.9rem;
+    }
+  style
+head
+body
+
+  h1🎄 圣诞快乐 🎄h1
+  h2燕子新 放学想h2
+
+  div class=tree
+    div class=star⭐div
+    div class=layerdiv
+    div class=layerdiv
+    div class=layerdiv
+    div class=layerdiv
+    div class=garland id=garlanddiv
+  div
+
+  div class=trunkdiv
+
+  footer愿这个圣诞，灯火璀璨，心意满满 ✨footer
+
+  script
+     雪花
+    for (let i = 0; i  80; i++) {
+      const snow = document.createElement('div');
+      snow.className = 'snowflake';
+      snow.innerText = '❄';
+      snow.style.left = Math.random()  window.innerWidth + 'px';
+      snow.style.fontSize = 10 + Math.random()  22 + 'px';
+      snow.style.opacity = Math.random();
+      snow.style.animationDuration = 4 + Math.random()  6 + 's';
+      document.body.appendChild(snow);
+    }
+
+     灯带
+    const colors = ['#ff4d4d', '#ffd633', '#4dd2ff', '#66ff99', '#ff99ff'];
+    const garland = document.getElementById('garland');
+    for (let i = 0; i  36; i++) {
+      const bulb = document.createElement('div');
+      bulb.className = 'bulb';
+      bulb.style.color = colors[Math.floor(Math.random()  colors.length)];
+      bulb.style.background = 'currentColor';
+      bulb.style.left = 20 + Math.random()  280 + 'px';
+      bulb.style.top = 40 + Math.random()  300 + 'px';
+      bulb.style.animationDuration = 0.8 + Math.random()  1.6 + 's';
+      garland.appendChild(bulb);
+    }
+
+     装饰球
+    for (let i = 0; i  24; i++) {
+      const o = document.createElement('div');
+      o.className = 'ornament';
+      o.style.background = colors[Math.floor(Math.random()  colors.length)];
+      o.style.left = 40 + Math.random()  240 + 'px';
+      o.style.top = 80 + Math.random()  260 + 'px';
+      garland.appendChild(o);
+    }
+
+     礼物
+    const giftColors = ['#ff6f61', '#6b9cff', '#7cff6b'];
+    for (let i = 0; i  3; i++) {
+      const gift = document.createElement('div');
+      gift.className = 'gift';
+      gift.style.background = giftColors[i % giftColors.length];
+      gift.style.left = `calc(50% + ${i  90 - 90}px)`;
+      document.body.appendChild(gift);
+    }
+  script
+
+body
+html
